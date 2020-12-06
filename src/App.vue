@@ -1,28 +1,108 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <!-- App.vue -->
+
+  <v-app>
+    <v-navigation-drawer app>
+      <!-- -->
+      <v-list>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+
+        <v-list-group no-action :value="true">
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>信息</v-list-item-title>
+            </v-list-item-content>
+          </template>
+          <v-list-item v-for="([title, icon], i) in admins" :key="i" link>
+            <v-list-item-title v-text="title"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="icon"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+        <v-list-group no-action :value="true">
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>工具</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item v-for="([title, icon], i) in tools" :key="i" link>
+            <v-list-item-title v-text="title"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="icon"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+                <v-list-group no-action :value="true">
+          <template v-slot:activator>
+            <v-list-item-content>
+              <v-list-item-title>游戏</v-list-item-title>
+            </v-list-item-content>
+          </template>
+
+          <v-list-item v-for="([title, icon], i) in tools" :key="i" link>
+            <v-list-item-title v-text="title"></v-list-item-title>
+
+            <v-list-item-icon>
+              <v-icon v-text="icon"></v-icon>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <!-- -->
+      top
+    </v-app-bar>
+
+    <!-- Sizes your content based upon application components -->
+    <v-main>
+      <!-- Provides the application the proper gutter -->
+      <v-container fluid>
+        <!-- If using vue-router -->
+        main
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+
+    <v-footer app>
+      <!-- -->
+      footer
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from "./components/HelloWorld";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {},
+
+  data: () => ({
+    admins: [
+      ["Management", "mdi-account-multiple-outline"],
+      ["Settings", "mdi-cog-outline"],
+    ],
+    tools: [
+      ["画板", "mdi-plus-outline"],
+      ["格式转换", "mdi-file-outline"],
+      ["图片压缩", "mdi-update"],
+      ["二维码生成", "mdi-delete"],
+    ],
+  }),
+
+  created: function () {},
+};
+</script>
