@@ -2,8 +2,7 @@
   <!-- App.vue -->
 
   <v-app>
-    <v-navigation-drawer app>
-      <!-- -->
+    <v-navigation-drawer app v-model="drawer">
       <v-list>
         <v-list-item to="/">
           <v-list-item-icon>
@@ -39,8 +38,8 @@
     </v-navigation-drawer>
 
     <v-app-bar app>
-      <!-- -->
-      <v-toolbar dark color="teal">
+      <!-- <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon> -->
+      <!-- <v-toolbar dark color="teal">
         <v-autocomplete
           v-model="select"
           :loading="loading"
@@ -57,7 +56,8 @@
         <v-btn icon>
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
-      </v-toolbar>
+      </v-toolbar> -->
+      <h1 align="center" @click="drawer = !drawer">Nobug Space</h1>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
@@ -66,12 +66,28 @@
       <v-container fluid>
         <!-- If using vue-router -->
         <router-view></router-view>
+        <div class="text-center">
+          <v-bottom-sheet v-model="sheet" inset hide-overlay>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn v-bind="attrs" v-on="on"> Games </v-btn>
+              <v-btn v-bind="attrs" v-on="on"> Tools </v-btn>
+              <v-btn v-bind="attrs" v-on="on"> News </v-btn>
+            </template>
+            <v-sheet class="text-center" height="600px">
+              <v-btn class="mt-6" text color="error" @click="sheet = !sheet">
+                close
+              </v-btn>
+              <div class="my-3">
+                This is a bottom sheet using the inset prop
+              </div>
+            </v-sheet>
+          </v-bottom-sheet>
+        </div>
       </v-container>
     </v-main>
 
     <v-footer app>
       <!-- -->
-      footer
     </v-footer>
   </v-app>
 </template>
@@ -85,6 +101,7 @@ export default {
   components: {},
 
   data: () => ({
+    drawer: false,
     menuGroups: [
       {
         title: "信息",
@@ -149,6 +166,7 @@ export default {
         ],
       },
     ],
+    sheet: false,
     loading: false,
     items: [],
     search: null,
