@@ -5,4 +5,5 @@ import vue from '@astrojs/vue';
 export default defineConfig({
 	// Enable Vue to support Vue components.
 	integrations: [vue()],
+	site: 'https://astronaut.github.io',
 });
