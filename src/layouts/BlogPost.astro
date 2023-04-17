@@ -1,11 +1,11 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
@@ -32,7 +32,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article>
-				{heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+				{
+					heroImage && (
+						<img width={720} height={360} src={heroImage} alt="" />
+					)
+				}
 				<h1 class="title">{title}</h1>
 				<FormattedDate date={pubDate} />
 				{
@@ -46,6 +50,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<slot />
 			</article>
 		</main>
+		<script
+			src="https://giscus.app/client.js"
+			data-repo="potato47/potato47.github.io"
+			data-repo-id="MDEwOlJlcG9zaXRvcnk4MzY2MTA5MA=="
+			data-category="Comments"
+			data-category-id="DIC_kwDOBPyRIs4CUjXO"
+			data-mapping="pathname"
+			data-strict="0"
+			data-reactions-enabled="1"
+			data-emit-metadata="0"
+			data-input-position="top"
+			data-theme="dark_dimmed"
+			data-lang="zh-CN"
+			data-loading="lazy"
+			crossorigin="anonymous"
+			async
+		></script>
 		<Footer />
 	</body>
 </html>

@@ -1,7 +1,7 @@
 ---
-title: "First post"
-description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 08 2022"
+title: "第一篇文章"
+description: "就是第一篇写的文章"
+pubDate: "2017 06 06"
 heroImage: "/placeholder-hero.jpg"
 ---
 

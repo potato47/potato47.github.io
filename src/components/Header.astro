@@ -1,0 +1,24 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+	<h2>
+		{SITE_TITLE}
+	</h2>
+	<nav>
+		<HeaderLink href="/">主页</HeaderLink>
+		<HeaderLink href="/blog">博客</HeaderLink>
+		<HeaderLink href="/about">关于</HeaderLink>
+		<HeaderLink href="https://github.com/potato47/astro" target="_blank">GitHub</HeaderLink>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0em 0 2em;
+	}
+	h2 {
+		margin: 0.5em 0;
+	}
+</style>
