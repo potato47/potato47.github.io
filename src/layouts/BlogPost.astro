@@ -19,11 +19,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 0.25em 0 0;
 			}
 			hr {
-				border-top: 1px solid #ddd;
-				margin: 1rem 0;
+				border-top: 1px solid #999;
+				margin: 2rem 0;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			.space {
+				height: 1rem;
 			}
 		</style>
 	</head>
@@ -32,6 +35,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article>
+				<hr />
 				{
 					heroImage && (
 						<img width={720} height={360} src={heroImage} alt="" />
