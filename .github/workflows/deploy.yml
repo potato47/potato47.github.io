@@ -1,35 +1,51 @@
-name: Github Pages Astro CI
+# 将静态内容部署到 GitHub Pages 的简易工作流程
+name: Deploy static content to Pages
 
 on:
-  # 每次推送到 `main` 分支时触发这个“工作流程”
-  # 如果你使用了别的分支名，请按需将 `main` 替换成你的分支名
+  # 仅在推送到默认分支时运行。
   push:
-    branches: [ main ]
-  # 允许你在 GitHub 上的 Actions 标签中手动触发此“工作流程”
+    branches: ['main']
+
+  # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:
-  
-# 允许 job 克隆 repo 并创建一个 page deployment
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages。
 permissions:
   contents: read
   pages: write
   id-token: write
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v3
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
+# 允许一个并发的部署
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
+jobs:
+  # 单次部署的工作描述
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload dist repository
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

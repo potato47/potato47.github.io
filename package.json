@@ -1,20 +1,20 @@
 {
-	"name": "nobug-space",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"astro": "^2.3.0",
-		"@astrojs/mdx": "^0.19.0",
-		"@astrojs/rss": "^2.3.2",
-		"@astrojs/sitemap": "^1.2.2",
-		"vue": "^3.2.37",
-		"@astrojs/vue": "^2.0.1"
-	}
+  "name": "test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.0",
+    "vue-tsc": "^1.2.0"
+  }
 }
