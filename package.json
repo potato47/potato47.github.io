@@ -12,9 +12,14 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@arco-design/web-vue": "^2.45.3",
     "@vitejs/plugin-vue": "^4.1.0",
+    "dayjs": "^1.11.7",
+    "pixi.js": "^7.2.4",
+    "solar2lunar": "^2.0.5",
     "typescript": "^5.0.2",
     "vite": "^4.3.0",
+    "vite-plugin-style-import": "^2.0.0",
     "vue-tsc": "^1.2.0"
   }
 }
