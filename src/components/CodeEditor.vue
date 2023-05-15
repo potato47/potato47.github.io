@@ -43,15 +43,15 @@ const init = () => {
     ].join('\n'));
 
 
-    var jsCode = [
-        '"use strict";',
-        '',
-        "Rectangle1.top = {",
+    // var jsCode = [
+    //     '"use strict";',
+    //     '',
+    //     "Rectangle1.top = {",
 
-        " console.log('Rectangle top');",
+    //     " console.log('Rectangle top');",
 
-        "}"
-    ].join('\n');
+    //     "}"
+    // ].join('\n');
 
     monaco.languages.typescript.javascriptDefaults.addExtraLib('declare const mm = {a:1}')
     editor = monaco.editor.create(codeEditBox.value, {

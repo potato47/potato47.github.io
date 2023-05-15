@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref } from 'vue'
-import * as dayjs from 'dayjs';
-import * as isLeapYear from 'dayjs/plugin/isLeapYear'; // 导入插件
+import { onMounted, reactive } from 'vue'
+// import * as dayjs from 'dayjs';
+// import * as isLeapYear from 'dayjs/plugin/isLeapYear'; // 导入插件
 import 'dayjs/locale/zh-cn'; // 导入本地化语言
-import { solar2lunar } from 'solar2lunar';
+// import { solar2lunar } from 'solar2lunar';
 
 const columns = [
     {
