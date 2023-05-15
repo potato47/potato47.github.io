@@ -1,6 +1,7 @@
 import Home from './pages/Home.vue';
 import CalendarProgram from './pages/CalendarProgram.vue';
 import PuzzleGame from './pages/PuzzleGame.vue';
+import Code2Image from './pages/Code2Image.vue';
 import { markRaw } from 'vue';
 
 export const pages = {
@@ -14,6 +15,11 @@ export const pages = {
         title: '日历',
         component: markRaw(CalendarProgram),
     },
+    Code2Image: {
+        key: 'Code2Image',
+        title: '代码生图',
+        component: markRaw(Code2Image),
+    },
     PuzzleGame: {
         key: 'PuzzleGame',
         title: '拼图',
@@ -24,7 +30,7 @@ export const menuData = [
     {
         key: 'Program',
         title: '小程序',
-        children: [pages.CalendarProgram],
+        children: [pages.CalendarProgram, pages.Code2Image],
     },
     {
         key: 'Game',
