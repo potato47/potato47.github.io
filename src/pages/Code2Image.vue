@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import * as monaco from 'monaco-editor';
 import CodeEditor from '../components/CodeEditor.vue';
+import IFramePreview from '../components/IFramePreview.vue';
 const codeContent = ref('');
 const editorMounted = (editor: monaco.editor.IStandaloneCodeEditor) => {
     console.log('editor实例加载完成', editor)
@@ -10,9 +11,9 @@ const editorMounted = (editor: monaco.editor.IStandaloneCodeEditor) => {
 
 <template>
     <div class="container">
-        <CodeEditor class="editor" v-model="codeContent" language="typescript" theme="vs-dark"
+        <CodeEditor class="editor" v-model="codeContent" language="javascript" theme="vs-dark"
             @editor-mounted="editorMounted"></CodeEditor>
-        <div class="preview">1</div>
+        <IFramePreview></IFramePreview>
     </div>
 </template>
 
@@ -31,5 +32,5 @@ const editorMounted = (editor: monaco.editor.IStandaloneCodeEditor) => {
 .preview {
     flex: 1;
     height: 100%;
-    background-color: antiquewhite;
-}</style>
+}
+</style>

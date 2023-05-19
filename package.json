@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "monaco-editor": "^0.38.0",
-    "vue": "^3.2.47",
     "dayjs": "^1.11.7",
+    "monaco-editor": "^0.38.0",
     "pixi.js": "^7.2.4",
-    "solar2lunar": "^2.0.5"
+    "solar2lunar": "^2.0.5",
+    "vue": "^3.2.47"
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.45.3",
